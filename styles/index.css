@@ -127,7 +127,7 @@ input{
 .daily {
     margin: 2rem 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(175px, 0.25fr));
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
     gap: 1rem;
 }
 .daily section{
@@ -157,7 +157,10 @@ input{
     background-color: var(--bg-input);
     border-radius: 0.5rem;
     padding: 1rem;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    align-items: center;
     margin: 1rem 0;
 }
 @media (max-width: 768px) {
