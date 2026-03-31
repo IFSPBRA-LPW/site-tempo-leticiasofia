@@ -21,6 +21,17 @@
 --font-size-base: 1rem;
 }
 
+body.light-mode {
+--fundo-principal: #bac0ff;
+--fundo-card: rgb(116, 125, 247);
+--painel-hourly: #5c69f7;
+--bg-input: #9ba3ff;
+--botao: #a6aef7;
+--botao-hover: #a5a7c0;
+--text-1: #000000;
+--text-2: #242424;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -80,7 +91,7 @@ input{
     border-bottom: 1px solid var(--fundo-card);
     text-align: left;
 }
-.button{
+.button {
     font-family: var(--font-family);
     font-weight: var(--font-weight-medium);
     background-color: var(--botao);
