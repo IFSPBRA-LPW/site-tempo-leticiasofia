@@ -1,6 +1,5 @@
 import { API_KEY } from "./config.js";
 
-// 🔍 buscar clima na API
 async function fetchWeather(city) {
   const response = await fetch(
     `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=7&lang=en`
@@ -13,7 +12,6 @@ async function fetchWeather(city) {
   return await response.json();
 }
 
-// 🔄 converter dados da API
 function formatData(data) {
   return {
     city: data.location.name,
@@ -39,7 +37,6 @@ function formatData(data) {
   };
 }
 
-// 🖥️ render banner
 function renderBannerInfo(data) {
   document.getElementById("city").textContent =
     `${data.city}, ${data.country}`;
@@ -50,7 +47,6 @@ function renderBannerInfo(data) {
     data.temperature + "°";
 }
 
-// 📊 stats
 function renderDayInfo(data) {
   document.getElementById("feels").textContent = data.feelsLike + "°";
   document.getElementById("humidity").textContent = data.humidity + "%";
@@ -58,7 +54,6 @@ function renderDayInfo(data) {
   document.getElementById("rain").textContent = data.precipitation + " mm";
 }
 
-// 📅 daily
 function renderDaily(dailyData) {
   const container = document.getElementById("daily");
   container.innerHTML = '<p class="titulo-secao">Daily Forecast</p>';
@@ -75,7 +70,6 @@ function renderDaily(dailyData) {
   });
 }
 
-// 🕐 hourly
 function renderHourly(hourlyData) {
   const container = document.getElementById("hourly");
   container.innerHTML = '<p class="titulo-secao">Hourly forecast</p>';
@@ -89,8 +83,6 @@ function renderHourly(hourlyData) {
     container.appendChild(li);
   });
 }
-
-// 🎯 função principal
 function orchestrator(data) {
   renderBannerInfo(data);
   renderDayInfo(data);
@@ -98,7 +90,6 @@ function orchestrator(data) {
   renderHourly(data.hourly);
 }
 
-// 🔍 busca pelo formulário
 const form = document.querySelector("form");
 
 form.addEventListener("submit", async (e) => {
@@ -117,7 +108,6 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-// 🚀 carregar inicial
 fetchWeather("Berlin")
   .then(data => {
     const formatted = formatData(data);
